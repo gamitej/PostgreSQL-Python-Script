@@ -25,7 +25,6 @@ def createTableRelation(cursor):
     cursor.execute(command)
     print('Table created successfully')
 
-
 def insertData(cursor,user_id,city,state):
     insert_query = "insert into address (user_id,city,state) values(%s,%s,%s)"
     record_to_insert = (user_id,city,state)
