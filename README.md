@@ -9,11 +9,11 @@
 
 ### Setup In Linux :- 
 
-[Postgres](https://www.postgresql.org/download/linux/ubuntu/)
+For postgres [link](https://www.postgresql.org/download/linux/ubuntu/)
 
-[Pgadmin4](https://www.pgadmin.org/download/pgadmin-4-apt/)
+For pgadmin [link](https://www.pgadmin.org/download/pgadmin-4-apt/)
 
-### Pgadmin Error :- 
+### Pgadmin Server Issue :- 
 
 Fatal Error 
 [Link](https://stackoverflow.com/questions/65877048/pgadmin-on-ubuntu-20-04-fatal-password-authentication-failed-for-user)
