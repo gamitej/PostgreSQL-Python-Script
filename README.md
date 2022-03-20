@@ -1,4 +1,4 @@
-## POSTGRESQL PYTHON SCRIPT 
+## POSTGRESQL PYTHON SCRIPT :-
 
 ### Script Includes :-
 
