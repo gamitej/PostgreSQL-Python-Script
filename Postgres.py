@@ -53,7 +53,7 @@ def getRecords(cursor):
     print('Records',record)
 
 
-Connection = None 
+connection = None 
 try:
     connection = psycopg2.connect(user='postgres',password='postgres',host='127.0.0.1',port='5432',database='postgres')
     cursor  =  connection.cursor()
@@ -69,7 +69,7 @@ try:
 except (Exception,psycopg2.Error) as error:
     print(error)
 finally:
-    if connection:
+    if connection is not None:
         cursor.close()
         connection.close()
         print("\nDB connection closed ->")
