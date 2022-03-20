@@ -72,5 +72,5 @@ finally:
     if connection:
         cursor.close()
         connection.close()
-        print('\nDB connection closed ->')
-print('Done :)')
+        print("\nDB connection closed ->")
+print("Done :)")
