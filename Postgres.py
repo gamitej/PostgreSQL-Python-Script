@@ -37,6 +37,7 @@ def updateTableData(cursor):
     print('Data Updated Successfully')
 
 #  Note -> while deleting data from table make sure you first delete the fk one data then the pk one later
+#  fk ( Foreign Key ) , pk ( Primary Key ) 
 def deleteFromTable(cursor):
     cursor.execute("DELETE FROM users WHERE id = 2")
     print('Data Deleted Successfully')
