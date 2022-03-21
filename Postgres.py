@@ -38,13 +38,15 @@ def updateTableData(cursor):
 #  Note -> while deleting data from table make sure you first delete the fk one data then the pk one later
 #  fk ( Foreign Key ) , pk ( Primary Key ) 
 def deleteFromTable(cursor):
-    cursor.execute("DELETE FROM users WHERE id = 2")
+    cursor.execute("DELETE FROM users WHERE id = 3")
     print('Data Deleted Successfully')
 
 # Note -> while altering column if column is not null then define it as default some_value 
 def alterColumn(cursor):
+    #cursor.execute("ALTER TABLE address ADD CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE")
+    #cursor.execute("ALTER TABLE address DROP CONSTRAINT fk_user_id")
     cursor.execute("ALTER TABLE users ADD COLUMN age int ")
-    print('Column Added Successfully')
+    print('Altered Successfully')
 
 def getRecords(cursor):
     cursor.execute('select * from address')
@@ -61,7 +63,7 @@ try:
     #createTableRelation(cursor)
     #insertData(cursor,3,'Satna','M.P')
     #updateTableData(cursor)
-    #deleteFromTable(cursor)
+    deleteFromTable(cursor)
     #alterColumn(cursor)
     getRecords(cursor)
     connection.commit()
