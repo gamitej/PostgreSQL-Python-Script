@@ -2,7 +2,7 @@ import psycopg2
 
 def createTable(cursor):
     command = '''
-        CREATE TABLE users (
+        CREATE TABLE IF NOT EXISTS users (
             id serial,
             firstname VARCHAR(25) NOT NULL,
             lastname VARCHAR(25) NOT NULL,
@@ -14,7 +14,7 @@ def createTable(cursor):
 
 def createTableRelation(cursor):
     command = '''
-        CREATE TABLE address (
+        CREATE TABLE IF NOT EXISTS address (
             user_id int NOT NULL,
             city VARCHAR(30) NOT NULL,
             state VARCHAR(30) NOT NULL,
@@ -43,8 +43,9 @@ def deleteFromTable(cursor):
 
 # Note -> while altering column if column is not null then define it as default some_value 
 def alterColumn(cursor):
-    #cursor.execute("ALTER TABLE address ADD CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE")
     #cursor.execute("ALTER TABLE address DROP CONSTRAINT fk_user_id")
+    #cursor.execute("ALTER TABLE address ADD CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE")
+
     cursor.execute("ALTER TABLE users ADD COLUMN age int ")
     print('Altered Successfully')
 
@@ -59,11 +60,11 @@ try:
     connection = psycopg2.connect(user='postgres',password='postgres',host='127.0.0.1',port='5432',database='postgres')
     cursor  =  connection.cursor()
     print('Connected to BD ->\n')
-    #createTable(cursor)
-    #createTableRelation(cursor)
+    createTable(cursor)
+    createTableRelation(cursor)
     #insertData(cursor,3,'Satna','M.P')
     #updateTableData(cursor)
-    deleteFromTable(cursor)
+    #deleteFromTable(cursor)
     #alterColumn(cursor)
     getRecords(cursor)
     connection.commit()
